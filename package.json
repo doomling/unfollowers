@@ -1,0 +1,16 @@
+{
+  "name": "doomtweet",
+  "version": "1.0.0",
+  "description": "a simple bot that reports unfollows",
+  "main": "index.js",
+  "scripts": {
+    "test": "test doom"
+  },
+  "author": "doomling",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "twit": "^2.2.11",
+    "twitter-lite": "^0.9.4"
+  }
+}
