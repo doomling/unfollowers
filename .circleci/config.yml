@@ -28,8 +28,7 @@ workflows:
             branches:
               only:
                 - master
-          requires:
-            - build
+      
     build-and-test:
       jobs:
         - build-and-test
