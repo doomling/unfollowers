@@ -1,8 +1,6 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.1.6
 jobs:
-  build-and-test:
+  build:
     executor:
       name: node/default
     steps:
@@ -11,6 +9,13 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
+  deploy-prod:
+    docker:
+    # specify the version you desire here (you might not want node)
+    - image: circleci/node:7.10
+    steps:
+      - checkout
+      - run: ssh -oStrictHostKeyChecking=no -v $DROPLET_USER@$DROPLET_IP “./deploy_project.sh”
 
 workflows:
   version: 2
@@ -27,11 +32,4 @@ workflows:
 
     build-and-test:
       jobs:
-        - build-and-test
-      deploy-prod:
-        docker:
-        # specify the version you desire here (you might not want node)
-        - image: circleci/node:7.10
-        steps:
-          - checkout
-          - run: ssh -oStrictHostKeyChecking=no -v $DROPLET_USER@$DROPLET_IP “./deploy_project.sh”
+        - build
