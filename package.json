@@ -9,7 +9,7 @@
   "author": "doomling",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "twit": "^2.2.11",
     "twitter-lite": "^0.9.4"
   }
